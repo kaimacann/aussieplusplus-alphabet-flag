@@ -3,8 +3,6 @@
 
 import sys
 
-PAIRS = "?¿',,[]!¡abqɔdpǝfɟgƃhɥiᴉjɾkʞllmɯnupdbqbrɹss tʇunvʌwʍxx yʎzzA∀BqCƆDD EƎFℲGפIIFſKʞL˥MWNN OOPԀQQRɹSS T┴U∩VΛWMXXY⅄ZZ00 1Ɩ2ᄅ3Ɛ4ㄣ5ϛ69 7ㄥ88 96() )(<>><>"„"
-
 def flip(source):
     pairs = {
         "?": "¿", "'": ",", ",": "'", "[": "]", "]": "[", "!": "¡",
