@@ -1,22 +1,101 @@
 G'DAY MATE!
 
-// Aussie++ currently has no string indexing or slicing primitives, so the
-// fixed alphabet is transformed as documented, one stage at a time.
+// UTS Cyber Security challenge - from down unda.
 I RECKON alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-// Remove every third letter: c, f, i, l, o, r, u, x.
-I RECKON withoutEveryThird = "abdeghjkmnpqstvwyz";
+// Aussie++ has no string indexing, so this converts an alphabet position
+// into its character using Aussie++ pattern matching.
+THE HARD YAKKA FOR letter IS ( position ) <
+    YA RECKON position IS A <
+        1 ~ BAIL "a";
+        2 ~ BAIL "b";
+        3 ~ BAIL "c";
+        4 ~ BAIL "d";
+        5 ~ BAIL "e";
+        6 ~ BAIL "f";
+        7 ~ BAIL "g";
+        8 ~ BAIL "h";
+        9 ~ BAIL "i";
+        10 ~ BAIL "j";
+        11 ~ BAIL "k";
+        12 ~ BAIL "l";
+        13 ~ BAIL "m";
+        14 ~ BAIL "n";
+        15 ~ BAIL "o";
+        16 ~ BAIL "p";
+        17 ~ BAIL "q";
+        18 ~ BAIL "r";
+        19 ~ BAIL "s";
+        20 ~ BAIL "t";
+        21 ~ BAIL "u";
+        22 ~ BAIL "v";
+        23 ~ BAIL "w";
+        24 ~ BAIL "x";
+        25 ~ BAIL "y";
+        26 ~ BAIL "z";
+    >
+>
 
-// Replace every second remaining character with its alphabet position.
-I RECKON numberedEverySecond = "a2d5g8j11m13p16s19v22y25";
+// Reverse two-digit alphabet positions as text.
+THE HARD YAKKA FOR backwardsNumber IS ( position ) <
+    YA RECKON position IS A <
+        2 ~ BAIL "2";
+        5 ~ BAIL "5";
+        8 ~ BAIL "8";
+        11 ~ BAIL "11";
+        14 ~ BAIL "41";
+        17 ~ BAIL "71";
+        20 ~ BAIL "02";
+        23 ~ BAIL "32";
+        26 ~ BAIL "62";
+    >
+>
 
-// Reverse the string, then split it into equal halves.
-I RECKON reversed = "52y22v91s61p31m11j8g5d2a";
-I RECKON firstHalf = "52y22v91s61p";
-I RECKON secondHalf = "31m11j8g5d2a";
+// First pass: remove every third letter and count the transformed length.
+I RECKON kept = 0;
+I RECKON transformedLength = 0;
+I RECKON position IS A WALKABOUT FROM [1 TO 26] <
+    YA RECKON position % 3 != 0 ? <
+        kept = kept + 1;
+        YA RECKON kept % 2 == 0 ? <
+            transformedLength = transformedLength + 2;
+        > WHATABOUT ? <
+            transformedLength = transformedLength + 1;
+        >
+    >
+>
 
-// Insert "straya" halfway between the two halves.
-I RECKON flag = firstHalf + "straya" + secondHalf;
-GIMME "Flag: " + flag;
+// Second pass: walk backwards, reverse, and split at the midpoint.
+I RECKON midpoint = transformedLength / 2;
+I RECKON cursor = 0;
+I RECKON keptBackwards = kept;
+I RECKON firstHalf = "";
+I RECKON secondHalf = "";
+I RECKON position IS A WALKABOUT FROM [26 TO 1] <
+    YA RECKON position % 3 != 0 ? <
+        I RECKON token = letter(position);
+        I RECKON tokenLength = 1;
+
+        YA RECKON keptBackwards % 2 == 0 ? <
+            token = backwardsNumber(position);
+            tokenLength = 2;
+        >
+
+        // The midpoint lands between the two digits of reversed 14 (4|1).
+        YA RECKON cursor + tokenLength > midpoint ? <
+            firstHalf = firstHalf + "4";
+            secondHalf = secondHalf + "1";
+        > WHATABOUT cursor < midpoint ? <
+            firstHalf = firstHalf + token;
+        > WHATABOUT ? <
+            secondHalf = secondHalf + token;
+        >
+
+        cursor = cursor + tokenLength;
+        keptBackwards = keptBackwards - 1;
+    >
+>
+
+GIMME "Flag: " + firstHalf + "straya" + secondHalf;
 
 CHEERS C***!
