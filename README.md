@@ -10,12 +10,15 @@ The program starts with the ordered alphabet and programatically:
 4. reverses the result; and
 5. inserts `straya` in the middle.
 
-The repository includes a locally extended Aussie++ interpreter in `aussieplusplus/`.
+The right-side-up source has been removed; the challenge is provided as
+`flag-upside-down.aussie`. The repository includes a locally extended Aussie++
+interpreter in `aussieplusplus/`.
 
 Run it with:
 
 ```sh
-cargo run --manifest-path aussieplusplus/Cargo.toml -- flag.aussie
+python3 scripts/upside_down.py flag-upside-down.aussie > /tmp/flag.aussie
+cargo run --manifest-path aussieplusplus/Cargo.toml -- /tmp/flag.aussie
 ```
 
 The helpers are deterministic: `CharAt` is zero-based, `Length` counts
