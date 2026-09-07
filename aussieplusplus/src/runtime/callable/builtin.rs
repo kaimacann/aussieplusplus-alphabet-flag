@@ -32,15 +32,15 @@ pub enum BuiltIn {
 
 impl BuiltIn {
     pub fn lookup(name: &str) -> Option<Self> {
-        match name {
-            "HitTheSack" => Some(BuiltIn::Sleep(Sleep::default())),
-            "GimmeTime" => Some(BuiltIn::Time(Time::default())),
-            "ChuckSomeDice" => Some(BuiltIn::Rand(Rand::default())),
-            "Length" => Some(BuiltIn::StringOp(StringOp::new("Length", StringOpKind::Length))),
-            "CharAt" => Some(BuiltIn::StringOp(StringOp::new("CharAt", StringOpKind::CharAt))),
-            "InsertChar" => Some(BuiltIn::StringOp(StringOp::new("InsertChar", StringOpKind::InsertChar))),
-            "Reverse" => Some(BuiltIn::StringOp(StringOp::new("Reverse", StringOpKind::Reverse))),
-            "Shuffle" => Some(BuiltIn::StringOp(StringOp::new("Shuffle", StringOpKind::Shuffle))),
+        match name.to_ascii_lowercase().as_str() {
+            "hitthesack" => Some(BuiltIn::Sleep(Sleep::default())),
+            "gimmetime" => Some(BuiltIn::Time(Time::default())),
+            "chucksomedice" => Some(BuiltIn::Rand(Rand::default())),
+            "length" => Some(BuiltIn::StringOp(StringOp::new("Length", StringOpKind::Length))),
+            "charat" => Some(BuiltIn::StringOp(StringOp::new("CharAt", StringOpKind::CharAt))),
+            "insertchar" => Some(BuiltIn::StringOp(StringOp::new("InsertChar", StringOpKind::InsertChar))),
+            "reverse" => Some(BuiltIn::StringOp(StringOp::new("Reverse", StringOpKind::Reverse))),
+            "shuffle" => Some(BuiltIn::StringOp(StringOp::new("Shuffle", StringOpKind::Shuffle))),
             _ => None,
         }
     }
