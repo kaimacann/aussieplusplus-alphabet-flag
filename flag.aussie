@@ -1,0 +1,22 @@
+G'DAY MATE!
+
+// Aussie++ currently has no string indexing or slicing primitives, so the
+// fixed alphabet is transformed as documented, one stage at a time.
+I RECKON alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+// Remove every third letter: c, f, i, l, o, r, u, x.
+I RECKON withoutEveryThird = "abdeghjkmnpqstvwyz";
+
+// Replace every second remaining character with its alphabet position.
+I RECKON numberedEverySecond = "a2d5g8j11m13p16s19v22y25";
+
+// Reverse the string, then split it into equal halves.
+I RECKON reversed = "52y22v91s61p31m11j8g5d2a";
+I RECKON firstHalf = "52y22v91s61p";
+I RECKON secondHalf = "31m11j8g5d2a";
+
+// Insert "straya" halfway between the two halves.
+I RECKON flag = firstHalf + "straya" + secondHalf;
+GIMME "Flag: " + flag;
+
+CHEERS C***!
