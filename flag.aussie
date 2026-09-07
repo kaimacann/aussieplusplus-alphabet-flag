@@ -1,20 +1,88 @@
 G'DAY MATE!
 
 // UTS Cyber Security challenge - from down unda.
-I RECKON left = "";
-I RECKON right = "";
-I RECKON kept = 0;
+I RECKON alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-// Remove every third number, double every second kept number, and reverse.
-I RECKON n IS A WALKABOUT FROM [26 TO 1] <
-    YA RECKON n % 3 != 0 ? <
-        kept = kept + 1;
-        I RECKON value = n;
-        YA RECKON kept % 2 == 0 ? value = n * 2;
-        YA RECKON kept <= 9 ? left = left + value + ",";
-        WHATABOUT ? right = right + value + ",";
+THE HARD YAKKA FOR letter IS ( p ) <
+    YA RECKON p IS A <
+        1 ~ BAIL "a";
+        2 ~ BAIL "b";
+        3 ~ BAIL "c";
+        4 ~ BAIL "d";
+        5 ~ BAIL "e";
+        6 ~ BAIL "f";
+        7 ~ BAIL "g";
+        8 ~ BAIL "h";
+        9 ~ BAIL "i";
+        10 ~ BAIL "j";
+        11 ~ BAIL "k";
+        12 ~ BAIL "l";
+        13 ~ BAIL "m";
+        14 ~ BAIL "n";
+        15 ~ BAIL "o";
+        16 ~ BAIL "p";
+        17 ~ BAIL "q";
+        18 ~ BAIL "r";
+        19 ~ BAIL "s";
+        20 ~ BAIL "t";
+        21 ~ BAIL "u";
+        22 ~ BAIL "v";
+        23 ~ BAIL "w";
+        24 ~ BAIL "x";
+        25 ~ BAIL "y";
+        26 ~ BAIL "z";
     >
 >
 
-GIMME "Flag: " + left + "straya," + right;
+THE HARD YAKKA FOR reversedNumber IS ( p ) <
+    YA RECKON p IS A <
+        2 ~ BAIL "2";
+        5 ~ BAIL "5";
+        8 ~ BAIL "8";
+        11 ~ BAIL "11";
+        14 ~ BAIL "41";
+        17 ~ BAIL "71";
+        20 ~ BAIL "02";
+        23 ~ BAIL "32";
+        26 ~ BAIL "62";
+    >
+>
+
+I RECKON kept = 0;
+I RECKON length = 0;
+I RECKON p IS A WALKABOUT FROM [1 TO 26] <
+    YA RECKON p % 3 != 0 ? <
+        kept = kept + 1;
+        YA RECKON kept % 2 == 0 ? length = length + 2;
+        WHATABOUT ? length = length + 1;
+    >
+>
+
+I RECKON midpoint = length / 2;
+I RECKON cursor = 0;
+I RECKON backwards = kept;
+I RECKON left = "";
+I RECKON right = "";
+I RECKON p IS A WALKABOUT FROM [26 TO 1] <
+    YA RECKON p % 3 != 0 ? <
+        I RECKON token = letter(p);
+        I RECKON size = 1;
+        YA RECKON backwards % 2 == 0 ? <
+            token = reversedNumber(p);
+            size = 2;
+        >
+        YA RECKON cursor + size > midpoint ? <
+            left = left + "4";
+            right = right + "1";
+        > WHATABOUT cursor < midpoint ? <
+            left = left + token;
+        > WHATABOUT ? <
+            right = right + token;
+        >
+        cursor = cursor + size;
+        backwards = backwards - 1;
+    >
+>
+
+GIMME "Flag: " + left + "straya" + right;
 CHEERS C***!
