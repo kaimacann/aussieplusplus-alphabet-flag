@@ -4,9 +4,10 @@ This is a UTS Cyber Security challenge from down unda, written in Aussie++.
 
 The program starts with a jumbled alphabet and programatically:
 
-1. jumbles the alphabet;
-2. generates the even alphabet positions; and
-3. appends those numbers to the jumbled alphabet.
+1. skips every third position;
+2. adds 7 to alternating positions and triples the others;
+3. reverses the numeric sequence with a descending loop; and
+4. inserts `straya` between its halves.
 
 Run `flag.aussie` with the [Aussie++ interpreter](https://github.com/zackradisic/aussieplusplus).
 
@@ -19,5 +20,5 @@ python3 scripts/upside_down.py flag.aussie > flag-upside-down.aussie
 Expected output:
 
 ```text
-Flag: qazwsxedcrfvtgbyhnujmikolp2468101214161820222426
+Flag: qazwsxedcrfvtgbyhnujmikolp85-69-67-57-49-43-31-25-13-straya-8-16-22-28-34-40-46-52-58-
 ```

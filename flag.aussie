@@ -1,12 +1,20 @@
 G'DAY MATE!
 
 // UTS Cyber Security challenge - from down unda.
-// Jumble the alphabet, then append generated numbers.
+// Jumble the alphabet, mutate the surviving positions, and split the code.
 I RECKON alphabet = "qazwsxedcrfvtgbyhnujmikolp";
-I RECKON numbers = "";
-I RECKON n IS A WALKABOUT FROM [1 TO 26] <
-    YA RECKON n % 2 == 0 ? numbers = numbers + n;
+I RECKON left = "";
+I RECKON right = "";
+I RECKON kept = 0;
+I RECKON n IS A WALKABOUT FROM [26 TO 1] <
+    YA RECKON n % 3 != 0 ? <
+        kept = kept + 1;
+        I RECKON mutation = n + 7;
+        YA RECKON kept % 2 == 0 ? mutation = n * 3;
+        YA RECKON kept <= 9 ? left = left + mutation + "-";
+        WHATABOUT ? right = right + mutation + "-";
+    >
 >
-GIMME "Flag: " + alphabet + numbers;
+GIMME "Flag: " + alphabet + left + "straya-" + right;
 
 CHEERS C***!
