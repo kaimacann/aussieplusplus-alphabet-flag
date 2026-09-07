@@ -93,10 +93,16 @@ impl<'a> Interpreter<'a> {
                         )
                         .into());
                     }
-                    Some(builtin) => self.env.borrow_mut().define(
-                        builtin.name().clone(),
-                        Value::Callable(Rc::new(builtin.into())),
-                    ),
+                    Some(builtin) => {
+                        let name = builtin.name().clone();
+                        let lower_name = Rc::from(name.to_ascii_lowercase());
+                        let callable = Value::Callable(Rc::new(builtin.into()));
+                        let canonical = callable.clone();
+                        self.env.borrow_mut().define(name, canonical);
+                        self.env.borrow_mut().define(
+                            lower_name, callable,
+                        );
+                    }
                 };
                 Ok(None)
             }

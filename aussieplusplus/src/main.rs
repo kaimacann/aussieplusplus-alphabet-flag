@@ -16,6 +16,9 @@ struct Opt {
     /// Path to input file
     #[structopt(name = "File", parse(from_os_str))]
     filepath: Option<PathBuf>,
+    /// Interpret the file using Aussie++ upside-down mode
+    #[structopt(long)]
+    upside_down: bool,
 }
 #[cfg(not(target_os = "emscripten"))]
 fn main() {
@@ -23,7 +26,11 @@ fn main() {
     let code: String;
     if let Some(filepath) = opt.filepath {
         code = fs::read_to_string(filepath).expect("failed to read file");
-        aussie_plus_plus::interpret(code.as_str()).unwrap();
+        if opt.upside_down {
+            aussie_plus_plus::interpret_upside_down(code.as_str()).unwrap();
+        } else {
+            aussie_plus_plus::interpret(code.as_str()).unwrap();
+        }
         println!("CHEERS C***!");
         return;
     }
