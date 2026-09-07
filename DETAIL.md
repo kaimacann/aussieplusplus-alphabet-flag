@@ -12,6 +12,12 @@ The program starts with the alphabet and programatically:
 
 Run `flag.aussie` with the [Aussie++ interpreter](https://github.com/zackradisic/aussieplusplus).
 
+To use the playground-style upside-down mode:
+
+```sh
+python3 scripts/upside_down.py flag.aussie > flag-upside-down.aussie
+```
+
 Expected output:
 
 ```text

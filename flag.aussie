@@ -71,7 +71,7 @@ I RECKON p IS A WALKABOUT FROM [26 TO 1] <
             token = reversedNumber(p);
             size = 2;
         >
-        YA RECKON cursor + size > midpoint ? <
+        YA RECKON cursor < midpoint && cursor + size > midpoint ? <
             left = left + "4";
             right = right + "1";
         > WHATABOUT cursor < midpoint ? <
