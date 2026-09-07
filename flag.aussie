@@ -1,20 +1,26 @@
 G'DAY MATE!
 
-// UTS Cyber Security challenge - from down unda.
-// Jumble the alphabet, mutate the surviving positions, and split the code.
-I RECKON alphabet = "qazwsxedcrfvtgbyhnujmikolp";
-I RECKON left = "";
-I RECKON right = "";
+IMPOHT ME FUNC Shuffle;
+IMPOHT ME FUNC Length;
+IMPOHT ME FUNC CharAt;
+IMPOHT ME FUNC Reverse;
+IMPOHT ME FUNC InsertChar;
+
+I RECKON alphabet = "abcdefghijklmnopqrstuvwxyz";
+I RECKON jumbled = Shuffle(alphabet, 2026);
+I RECKON code = "";
 I RECKON kept = 0;
-I RECKON n IS A WALKABOUT FROM [26 TO 1] <
-    YA RECKON n % 3 != 0 ? <
+
+I RECKON p IS A WALKABOUT FROM [0 TO Length(jumbled)) <
+    YA RECKON (p + 1) % 3 != 0 ? <
         kept = kept + 1;
-        I RECKON mutation = n + 7;
-        YA RECKON kept % 2 == 0 ? mutation = n * 3;
-        YA RECKON kept <= 9 ? left = left + mutation + "-";
-        WHATABOUT ? right = right + mutation + "-";
+        code = code + CharAt(jumbled, p);
+        YA RECKON kept % 2 == 0 ? code = code + (p + 1);
     >
 >
-GIMME "Flag: " + alphabet + left + "straya-" + right;
+
+code = Reverse(code);
+code = InsertChar(code, Length(code) / 2, "straya");
+GIMME "Flag: " + code;
 
 CHEERS C***!
