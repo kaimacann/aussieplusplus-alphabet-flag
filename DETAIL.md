@@ -25,7 +25,7 @@ requested character index.
 Verified output:
 
 ```text
-Flag: 62ab32de02gh71jkstraya41mn11pq8st5vw2yz
+Flag: 81ab61de41gh21jkstraya01mn8pq6st4vw2yz
 ```
 
 To use the playground-style upside-down mode:
@@ -33,3 +33,5 @@ To use the playground-style upside-down mode:
 ```sh
 python3 scripts/upside_down.py flag.aussie > flag-upside-down.aussie
 ```
+
+The generated source is committed as [`flag-upside-down.aussie`](flag-upside-down.aussie).

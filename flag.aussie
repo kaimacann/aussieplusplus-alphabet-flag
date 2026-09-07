@@ -14,7 +14,7 @@ I RECKON p IS A WALKABOUT FROM [0 TO Length(jumbled)) <
     YA RECKON (p + 1) % 3 != 0 ? <
         kept = kept + 1;
         code = code + CharAt(jumbled, p);
-        YA RECKON kept % 2 == 0 ? code = code + (p + 1);
+        YA RECKON kept % 2 == 0 ? code = code + kept;
     >
 >
 
