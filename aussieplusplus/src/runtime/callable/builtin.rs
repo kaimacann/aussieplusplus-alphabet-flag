@@ -142,7 +142,11 @@ impl AussieCallable for StringOp {
     }
 
     fn arity(&self) -> u8 {
-        match self.kind { StringOpKind::Length | StringOpKind::Reverse => 1, _ => 2 }
+        match self.kind {
+            StringOpKind::Length | StringOpKind::Reverse => 1,
+            StringOpKind::InsertChar => 3,
+            _ => 2,
+        }
     }
 
     fn name(&self) -> &Rc<str> { &self.name }

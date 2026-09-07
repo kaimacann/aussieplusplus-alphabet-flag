@@ -1,13 +1,12 @@
 G'DAY MATE!
 
-IMPOHT ME FUNC Shuffle;
 IMPOHT ME FUNC Length;
 IMPOHT ME FUNC CharAt;
 IMPOHT ME FUNC Reverse;
 IMPOHT ME FUNC InsertChar;
 
 I RECKON alphabet = "abcdefghijklmnopqrstuvwxyz";
-I RECKON jumbled = Shuffle(alphabet, 2026);
+I RECKON jumbled = Reverse(alphabet);
 I RECKON code = "";
 I RECKON kept = 0;
 
