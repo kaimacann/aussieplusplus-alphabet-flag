@@ -2,13 +2,11 @@
 
 This is a UTS Cyber Security challenge from down unda, written in Aussie++.
 
-The program starts with the alphabet and programatically:
+The program starts with a jumbled alphabet and programatically:
 
-1. removes every third letter;
-2. replaces every second remaining character with its alphabet position;
-3. reverses the resulting string;
-4. cuts it in half; and
-5. inserts `straya` halfway through it.
+1. jumbles the alphabet;
+2. generates the even alphabet positions; and
+3. appends those numbers to the jumbled alphabet.
 
 Run `flag.aussie` with the [Aussie++ interpreter](https://github.com/zackradisic/aussieplusplus).
 
@@ -21,5 +19,5 @@ python3 scripts/upside_down.py flag.aussie > flag-upside-down.aussie
 Expected output:
 
 ```text
-Flag: 62y32v02s71p4straya1m11j8g5d2a
+Flag: qazwsxedcrfvtgbyhnujmikolp2468101214161820222426
 ```
