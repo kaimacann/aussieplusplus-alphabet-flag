@@ -20,5 +20,5 @@ python3 scripts/upside_down.py flag.aussie > flag-upside-down.aussie
 Expected output:
 
 ```text
-Flag: qazwsxedcrfvtgbyhnujmikolp85-69-67-57-49-43-31-25-13-straya-8-16-22-28-34-40-46-52-58-
+Flag: qazwsxedcrfvtgbyhnujmikolp33-75-30-66-27-57-24-48-21-straya-39-18-30-15-21-12-12-9-3-
 ```
